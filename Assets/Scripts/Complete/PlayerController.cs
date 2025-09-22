@@ -52,7 +52,8 @@ namespace Complete
             if (!(Time.time > _spawnTimeCounter)) return;
             
             var projectileClone = Instantiate(projectile, UpdateSpawnPosition(), quaternion.identity);
-            projectileClone.GetComponent<Rigidbody2D>().velocity = _lookVector * projectileSpeed + _rigidbody2D.velocity;
+            projectileClone.TryGetComponent(out Rigidbody2D rb2D);
+            rb2D.linearVelocity = _lookVector * projectileSpeed + _rigidbody2D.linearVelocity;
  
             _spawnTimeCounter = Time.time + spawnTime;
             Destroy(projectileClone, 4f);
@@ -72,7 +73,7 @@ namespace Complete
 
         private void UpdateMovement()
         {
-            _rigidbody2D.velocity = _moveVector * moveSpeed;
+            _rigidbody2D.linearVelocity = _moveVector * moveSpeed;
         }
 
         private void UpdateInput()

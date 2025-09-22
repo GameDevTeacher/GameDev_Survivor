@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         //transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed);
-        _rigidbody2D.velocity = PlayerDirection() * moveSpeed;
+        _rigidbody2D.linearVelocity = PlayerDirection() * moveSpeed;
     }
 
     private Vector2 PlayerDirection()
