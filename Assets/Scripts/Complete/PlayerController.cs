@@ -19,7 +19,6 @@ namespace Complete
         private float _spawnTimeCounter;
         private Vector2 _spawnPosition;
         
-        
         [Header("Components")]
         private Rigidbody2D _rigidbody2D;
 
